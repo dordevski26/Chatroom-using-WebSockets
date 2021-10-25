@@ -13,7 +13,7 @@ var feedback = document.getElementById('feedback');
 
 // emit events
 
-btn.addEventListener('click', function() {
+btn.addEventListener('click', () => {
   socket.emit('chat-message', {
     message: message.value,
     handle: handle.value
@@ -30,12 +30,12 @@ message.addEventListener('keypress', function() {
 
 // Listen for events
 
-socket.on('chat-message', function(data) {
+socket.on('chat-message', (data) => {
   feedback.innerHTML = '';
   output.innerHTML += '<p><strong>' + data.handle + ':</strong>' + data.message + '</p>';
  
 });
 
-socket.on('typing', function(data) {
+socket.on('typing', (data) => {
   feedback.innerHTML = '<p><em>' + data + ' is typing...</em></p>';
 });

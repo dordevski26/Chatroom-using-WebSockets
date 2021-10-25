@@ -21,11 +21,11 @@ var io = socket(server);
 io.on('connection', (socket) => {
   console.log('socket connection established', socket.id);
 
-  socket.on('chat-message', function(data) {
+  socket.on('chat-message', (data) => {
     io.sockets.emit('chat-message', data);
   })
  
-  socket.on('typing', function(data) {
+  socket.on('typing', (data) => {
     socket.broadcast.emit('typing', data)
   });
 
